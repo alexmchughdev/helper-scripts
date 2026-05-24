@@ -24,11 +24,14 @@ the host, over SSH, or anywhere else.
 
 ## Install
 
-Place `setupvnc.sh` in the admin tools container and make it executable:
+1. Upload `setupvnc.sh` to `/var/lib` on the host via the file browser.
+2. Open the admin tools container's console in Portainer — the host's
+   `/var/lib` is mounted there at `/host/var/lib`.
+3. Make it executable and run it:
 
-```sh
-chmod +x setupvnc.sh
-```
+   ```sh
+   chmod +x /host/var/lib/setupvnc.sh && /host/var/lib/setupvnc.sh
+   ```
 
 `socat` is installed automatically via `apt-get` on first run if it isn't
 already present.
